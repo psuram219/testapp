@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">ionic-app-base</string>
+    <string name="title_activity_main">ionic-app-base</string>
+    <string name="package_name">ionic.app.base</string>
+    <string name="custom_url_scheme">ionic.app.base</string>
+    <string name="title_activity_browser">BrowserActivity</string>
+    <string name="title_activity_basic">BasicActivity</string>
+    <string name="close_button">Close Button</string>
+    <string name="button_near_done">Button near "done"</string>
+    <string name="reload_button">Reload Button</string>
+    <string name="back_button">Back Button</string>
+    <string name="title">Title</string>
+    <string name="forward_button">Forward Button</string>
+</resources>
