@@ -5,6 +5,7 @@ import { filter, Subject, takeUntil } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { CustomNavigationClient } from './custom-navigation';
 import { InAppBrowser } from 'src/plugins/InAppBrowserPlugin_index';
+import { StatusBar, Style } from '@capacitor/status-bar';
 
 type IdTokenClaimsWithPolicyId = IdTokenClaims & {
   acr?: string,

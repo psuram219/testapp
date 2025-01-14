@@ -217,6 +217,16 @@ open class WKWebViewController: UIViewController, WKScriptMessageHandler {
 
     override open func viewDidLoad() {
         super.viewDidLoad()
+        if #available(iOS 13.0, *) {
+            let statusBar = UIView(frame: UIApplication.shared.keyWindow?.windowScene?.statusBarManager?.statusBarFrame ?? CGRect.zero)
+          statusBar.backgroundColor = UIColor(hexString: "#d31145")
+            statusBar.tag = 100
+            UIApplication.shared.keyWindow?.addSubview(statusBar)
+        } 
+        else {
+            let statusBar = UIApplication.shared.value(forKeyPath: "statusBarWindow.statusBar") as? UIView
+            statusBar?.backgroundColor = UIColor(hexString: "#d31145")
+        }
         if self.webView == nil {
             self.initWebview()
         }
@@ -281,7 +291,7 @@ open class WKWebViewController: UIViewController, WKScriptMessageHandler {
 
     open func initWebview(isInspectable: Bool = true) {
 
-        self.view.backgroundColor = UIColor.white
+        self.view.backgroundColor = UIColor(hexString: "#d31145")
 
         self.extendedLayoutIncludesOpaqueBars = true
         self.edgesForExtendedLayout = [.bottom]
@@ -373,7 +383,7 @@ open class WKWebViewController: UIViewController, WKScriptMessageHandler {
     }
 
     override open func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
-        //        self.view.frame.size.height = self.currentViewHeight!
+        // self.view.frame.size.height = self.currentViewHeight!
     }
 
     override open func viewWillLayoutSubviews() {

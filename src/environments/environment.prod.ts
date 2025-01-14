@@ -3,7 +3,7 @@ export const environment = {
   msalConfig: {
     auth: {
       clientId: "73830000-11f2-4bae-a002-533a8701dde5",
-      redirectUri: "com.independenthealth.testapp://login"
+      redirectUri: "com.independenthealth.testapp://login" //com.independenthealth.
     }
   },
   apiConfig: {

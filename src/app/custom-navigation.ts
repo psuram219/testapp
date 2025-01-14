@@ -1,6 +1,7 @@
 import { INavigationClient, NavigationOptions } from "@azure/msal-browser";
 import { Capacitor } from "@capacitor/core";
-import { InAppBrowser, ToolBarType } from "src/plugins/InAppBrowserPlugin_index";
+import { StatusBar, Style } from "@capacitor/status-bar";
+import { BackgroundColor, InAppBrowser, ToolBarType } from "src/plugins/InAppBrowserPlugin_index";
 
 export class CustomNavigationClient implements INavigationClient {
 
@@ -12,7 +13,8 @@ export class CustomNavigationClient implements INavigationClient {
             await InAppBrowser.openWebView({
                 url: url,
                 ignoreUntrustedSSLError: true,
-                toolbarType: ToolBarType.BLANK
+                toolbarType: ToolBarType.BLANK,
+                backgroundColor: BackgroundColor.BLACK
             });
         }
         else {
@@ -31,7 +33,14 @@ export class CustomNavigationClient implements INavigationClient {
            await InAppBrowser.openWebView({
                 url: url,
                 ignoreUntrustedSSLError: true,
-                toolbarType: ToolBarType.BLANK
+                toolbarType: ToolBarType.BLANK,
+                backgroundColor: BackgroundColor.WHITE
+            });
+
+            StatusBar.setOverlaysWebView({ overlay: true });
+            this.setStatusBarStyleDark();
+            StatusBar.setBackgroundColor({
+              color: '#d31145'
             });
         }
         else {
@@ -44,4 +53,12 @@ export class CustomNavigationClient implements INavigationClient {
         }
         return true;
     }
+
+    setStatusBarStyleDark = async () => {
+        await StatusBar.setStyle({ style: Style.Dark });
+      };
+      
+      setStatusBarStyleLight = async () => {
+        await StatusBar.setStyle({ style: Style.Light });
+      };
 }
